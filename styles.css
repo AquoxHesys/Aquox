@@ -1,6 +1,6 @@
 body {
     background-image: url('cicy_fondo.png');
-    background-size: contain; /* Adjust the size to fit within the viewport */
+    background-size: cover; /* Ensure the background image covers the entire viewport */
     background-attachment: fixed;
     background-repeat: no-repeat;
     font-family: Arial, sans-serif;
@@ -16,6 +16,7 @@ header {
     padding: 10px;
     color: white;
     position: relative;
+    z-index: 1; /* Ensure header is above the background */
 }
 
 header .logo {
@@ -36,11 +37,13 @@ nav {
     color: white;
     padding: 10px;
     text-align: center;
+    z-index: 1; /* Ensure nav is above the background */
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -57,16 +60,22 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Main content section */
 .content {
     background-color: rgba(255, 255, 255, 0.35); /* White background with 35% opacity */
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
+    z-index: 1; /* Ensure content is above the background */
+    position: relative; /* Ensure content is positioned relative to the body */
 }
 
+/* Footer section */
 footer {
     background-color: rgba(0, 128, 0, 0.35); /* Green background with 35% opacity */
     color: white;
     padding: 10px;
     text-align: center;
+    z-index: 1; /* Ensure footer is above the background */
+    position: relative; /* Ensure footer is positioned relative to the body */
 }
