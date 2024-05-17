@@ -1,6 +1,6 @@
 body {
     background-image: url('cicy_fondo.png');
-    background-size: cover;
+    background-size: 100% 100%; /* Stretch the image to fit within the viewport */
     background-attachment: fixed;
     background-repeat: no-repeat;
     font-family: Arial, sans-serif;
@@ -17,7 +17,7 @@ body {
 }
 
 header, nav, footer {
-    background-color: rgba(0, 128, 0, 0.8); /* Green background with 80% opacity */
+    background-color: rgba(0, 128, 0, 0.9); /* Green background with 80% opacity */
     color: white;
     padding: 10px;
     text-align: center;
