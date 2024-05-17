@@ -23,6 +23,11 @@ header, nav, footer {
     text-align: center;
 }
 
+header .logo {
+    width: 50px; /* Set the desired width for the logo */
+    height: auto; /* Maintain aspect ratio */
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
