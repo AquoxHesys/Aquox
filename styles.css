@@ -24,8 +24,8 @@ header, nav, footer {
 }
 
 header .logo {
-    width: 210px; /* Set the desired width for the logo */
-    height: 300px; /* Maintain aspect ratio */
+    width: 200px; /* Set the desired width for the logo */
+    height: 275px; /* Maintain aspect ratio */
 }
 
 nav ul {
