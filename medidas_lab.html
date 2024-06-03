@@ -6,6 +6,12 @@
     <title>Medidas LAB - Aquox</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Ensure the canvas has a visible background color for debugging */
+        canvas {
+            background-color: white;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -23,7 +29,7 @@
     </nav>
     <section class="content">
         <h2>Medidas LAB</h2>
-        <canvas id="myChart" width="400" height="200" style="background-color: white;"></canvas>
+        <canvas id="myChart" width="400" height="200"></canvas>
         <div id="calculations">
             <h3>Total Calculations</h3>
             <p id="total-mv">Total mV from last to this one: </p>
@@ -36,7 +42,7 @@
         <p>© 2024 Centro de Investigación Científica de Yucatán. Todos los derechos reservados.</p>
     </footer>
     <script>
-        window.onload = function() {
+        document.addEventListener('DOMContentLoaded', (event) => {
             const ctx = document.getElementById('myChart').getContext('2d');
             const labels = [
                 '06/02/2024 12:00 PM',
@@ -98,7 +104,7 @@
             document.getElementById('total-v').innerText = `Total V: ${totalV.toFixed(3)} V`;
             document.getElementById('historical-mv').innerText = `Historical total mV: ${historicalMV} mV`;
             document.getElementById('methane').innerText = `Total methane not released to the atmosphere: ${methaneNotReleased.toFixed(3)} m³`;
-        }
+        });
     </script>
 </body>
 </html>
