@@ -45,18 +45,12 @@
         document.addEventListener('DOMContentLoaded', (event) => {
             const ctx = document.getElementById('myChart').getContext('2d');
             const labels = [
-                '06/02/2024 12:00 PM',
-                '06/02/2024 12:00 AM',
-                '06/03/2024 12:00 PM',
-                '06/03/2024 12:00 AM',
-                '06/04/2024 12:00 PM',
-                '06/04/2024 12:00 AM',
-                '06/05/2024 12:00 PM',
-                '06/05/2024 12:00 AM',
-                '06/06/2024 12:00 PM'
+                '06/01/2024', // Saturday
+                '06/02/2024', // Sunday
+                '06/03/2024'  // Monday (today)
             ];
             const dataValues = [
-                300, 320, 315, 310, 305, 330, 350, 340, 360
+                300, 320, 315
             ];
 
             const myChart = new Chart(ctx, {
@@ -75,7 +69,7 @@
                         x: {
                             title: {
                                 display: true,
-                                text: 'Time'
+                                text: 'Date'
                             }
                         },
                         y: {
