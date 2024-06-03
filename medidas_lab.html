@@ -1,29 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Chart.js Example</title>
-    <!-- Include Chart.js from CDN -->
+    <title>Medidas LAB - Aquox</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Ensure the canvas has a visible background color for debugging */
+        canvas {
+            background-color: white;
+        }
+    </style>
 </head>
 <body>
-    <h2>Basic Line Chart</h2>
-    <!-- Canvas element where the chart will be rendered -->
-    <canvas id="myChart" width="400" height="200"></canvas>
+    <header>
+        <a href="index.html">
+            <img src="LOGOTIPO-01.png" alt="Aquox Logo" class="logo">
+        </a>
+        <h1>Aquox</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="medidas_lab.html">Medidas LAB</a></li>
+        </ul>
+    </nav>
+    <section class="content">
+        <h2>Medidas LAB</h2>
+        <canvas id="myChart" width="400" height="200"></canvas>
+        <div id="calculations">
+            <h3>Total Calculations</h3>
+            <p id="total-mv">Total mV from last to this one: </p>
+            <p id="total-v">Total V: </p>
+            <p id="historical-mv">Historical total mV: </p>
+            <p id="methane">Total methane not released to the atmosphere: </p>
+        </div>
+    </section>
+    <footer>
+        <p>© 2024 Centro de Investigación Científica de Yucatán. Todos los derechos reservados.</p>
+    </footer>
     <script>
-        // Ensure the script runs after the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', (event) => {
             const ctx = document.getElementById('myChart').getContext('2d');
+            const labels = [
+                '06/02/2024 12:00 PM',
+                '06/02/2024 12:00 AM',
+                '06/03/2024 12:00 PM',
+                '06/03/2024 12:00 AM',
+                '06/04/2024 12:00 PM',
+                '06/04/2024 12:00 AM',
+                '06/05/2024 12:00 PM',
+                '06/05/2024 12:00 AM',
+                '06/06/2024 12:00 PM'
+            ];
+            const dataValues = [
+                300, 320, 315, 310, 305, 330, 350, 340, 360
+            ];
+
             const myChart = new Chart(ctx, {
-                type: 'line', // Type of chart
+                type: 'line',
                 data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'], // X-axis labels
+                    labels: labels,
                     datasets: [{
-                        label: 'Sample Data', // Label for the dataset
-                        data: [65, 59, 80, 81, 56, 55, 40], // Y-axis data points
-                        borderColor: 'rgba(75, 192, 192, 1)', // Line color
-                        borderWidth: 1 // Line width
+                        label: 'Measurements',
+                        data: dataValues,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
                     }]
                 },
                 options: {
@@ -31,19 +75,31 @@
                         x: {
                             title: {
                                 display: true,
-                                text: 'Month'
+                                text: 'Time'
                             }
                         },
                         y: {
-                            beginAtZero: true,
+                            beginAtZero: false,
+                            min: 250,
+                            max: 475,
                             title: {
                                 display: true,
-                                text: 'Value'
+                                text: 'mV'
                             }
                         }
                     }
                 }
             });
+
+            const totalMV = dataValues.reduce((a, b) => a + b, 0);
+            const totalV = totalMV / 1000;
+            const historicalMV = totalMV;
+            const methaneNotReleased = historicalMV * 0.001;
+
+            document.getElementById('total-mv').innerText = `Total mV from last to this one: ${totalMV} mV`;
+            document.getElementById('total-v').innerText = `Total V: ${totalV.toFixed(3)} V`;
+            document.getElementById('historical-mv').innerText = `Historical total mV: ${historicalMV} mV`;
+            document.getElementById('methane').innerText = `Total methane not released to the atmosphere: ${methaneNotReleased.toFixed(3)} m³`;
         });
     </script>
 </body>
