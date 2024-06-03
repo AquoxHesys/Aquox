@@ -23,7 +23,7 @@
     </nav>
     <section class="content">
         <h2>Medidas LAB</h2>
-        <canvas id="myChart" width="400" height="200"></canvas>
+        <canvas id="myChart" width="400" height="200" style="background-color: white;"></canvas>
         <div id="calculations">
             <h3>Total Calculations</h3>
             <p id="total-mv">Total mV from last to this one: </p>
@@ -36,73 +36,69 @@
         <p>© 2024 Centro de Investigación Científica de Yucatán. Todos los derechos reservados.</p>
     </footer>
     <script>
-        const ctx = document.getElementById('myChart').getContext('2d');
-        
-        // Sample data
-        const labels = [
-            '06/02/2024 12:00 PM',
-            '06/02/2024 12:00 AM',
-            '06/03/2024 12:00 PM',
-            '06/03/2024 12:00 AM',
-            '06/04/2024 12:00 PM',
-            '06/04/2024 12:00 AM',
-            '06/05/2024 12:00 PM',
-            '06/05/2024 12:00 AM',
-            '06/06/2024 12:00 PM'
-        ]; // Mock time labels from noon on past Sunday
+        window.onload = function() {
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const labels = [
+                '06/02/2024 12:00 PM',
+                '06/02/2024 12:00 AM',
+                '06/03/2024 12:00 PM',
+                '06/03/2024 12:00 AM',
+                '06/04/2024 12:00 PM',
+                '06/04/2024 12:00 AM',
+                '06/05/2024 12:00 PM',
+                '06/05/2024 12:00 AM',
+                '06/06/2024 12:00 PM'
+            ];
+            const dataValues = [
+                300, 320, 315, 310, 305, 330, 350, 340, 360
+            ];
 
-        const dataValues = [
-            300, 320, 315, 310, 305, 330, 350, 340, 360
-        ]; // Mock data points in mV
-
-        // Initialize the chart
-        const myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Measurements',
-                    data: dataValues,
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        type: 'time',
-                        time: {
-                            unit: 'hour'
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Measurements',
+                        data: dataValues,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'hour'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Time'
+                            }
                         },
-                        title: {
-                            display: true,
-                            text: 'Time'
-                        }
-                    },
-                    y: {
-                        beginAtZero: false,
-                        min: 250,
-                        max: 475,
-                        title: {
-                            display: true,
-                            text: 'mV'
+                        y: {
+                            beginAtZero: false,
+                            min: 250,
+                            max: 475,
+                            title: {
+                                display: true,
+                                text: 'mV'
+                            }
                         }
                     }
                 }
-            }
-        });
+            });
 
-        // Calculate totals
-        const totalMV = dataValues.reduce((a, b) => a + b, 0);
-        const totalV = totalMV / 1000;
-        const historicalMV = totalMV; // For simplicity, assuming historical sum is the same as current
-        const methaneNotReleased = historicalMV * 0.001; // Example conversion factor
+            const totalMV = dataValues.reduce((a, b) => a + b, 0);
+            const totalV = totalMV / 1000;
+            const historicalMV = totalMV;
+            const methaneNotReleased = historicalMV * 0.001;
 
-        // Update the HTML with calculations
-        document.getElementById('total-mv').innerText = `Total mV from last to this one: ${totalMV} mV`;
-        document.getElementById('total-v').innerText = `Total V: ${totalV.toFixed(3)} V`;
-        document.getElementById('historical-mv').innerText = `Historical total mV: ${historicalMV} mV`;
-        document.getElementById('methane').innerText = `Total methane not released to the atmosphere: ${methaneNotReleased.toFixed(3)} m³`;
+            document.getElementById('total-mv').innerText = `Total mV from last to this one: ${totalMV} mV`;
+            document.getElementById('total-v').innerText = `Total V: ${totalV.toFixed(3)} V`;
+            document.getElementById('historical-mv').innerText = `Historical total mV: ${historicalMV} mV`;
+            document.getElementById('methane').innerText = `Total methane not released to the atmosphere: ${methaneNotReleased.toFixed(3)} m³`;
+        }
     </script>
 </body>
 </html>
