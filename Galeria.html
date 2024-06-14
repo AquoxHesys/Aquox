@@ -25,25 +25,16 @@
     <div class="content">
         <div class="gallery">
             <div class="image-container">
-                <img src="Galeria/d1.png" alt="Diagrama de flujo">
-                <p>Diagrama de flujo</p>
-            </div>
-            <div class="image-container">
-                <img src="Galeria/d2.png" alt="Evolución del Proceso de Clarificación del Agua">
-                <p>Evolución del Proceso de Clarificación del Agua</p>
-            </div>
-            <div class="image-container">
-                <img src="Galeria/d3.png" alt="Esquema Detallado de la Celda de Electrolisis: Vista Frontal, Superior e Isométrica">
-                <p>Esquema Detallado de la Celda de Electrolisis: Vista Frontal, Superior e Isométrica</p>
-            </div>
-            <div class="image-container">
-                <img src="Galeria/d4.png" alt="Tarjeta Recolectora">
-                <p>Tarjeta Recolectora</p>
+                <button id="prev" onclick="prevImage()">&#10094;</button>
+                <img id="galleryImage" src="Galeria/d1.png" alt="Diagrama de flujo">
+                <button id="next" onclick="nextImage()">&#10095;</button>
+                <p id="imageDescription">Diagrama de flujo</p>
             </div>
         </div>
     </div>
     <footer>
         <p>© 2024 Centro de Investigación Científica de Yucatán. Todos los derechos reservados.</p>
     </footer>
+    <script src="js/script.js"></script>
 </body>
 </html>
