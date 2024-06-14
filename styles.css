@@ -56,6 +56,7 @@ nav ul li a:hover {
 .image-container {
     margin: 20px 0;
     text-align: center;
+    width: 80%; /* Adjust the width as needed */
 }
 
 .image-container img {
