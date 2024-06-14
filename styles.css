@@ -52,26 +52,26 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .image-container {
     position: relative;
     text-align: center;
     width: 80%; /* Adjust the width as needed */
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .image-container img {
     max-width: 100%;
     height: auto;
     display: block;
+    margin: 0 auto;
 }
 
 .image-container p {
     margin: 10px 0 0;
     font-size: 16px;
+    font-weight: bold;
     color: #333;
 }
 
