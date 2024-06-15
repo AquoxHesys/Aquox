@@ -66,6 +66,7 @@ nav ul li a:hover {
     height: auto;
     display: block;
     margin: 0 auto;
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
 }
 
 .image-container p {
@@ -79,22 +80,25 @@ button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.1); /* Make the arrows almost invisible */
     border: none;
     color: white;
-    font-size: 18px;
-    padding: 10px;
+    font-size: 24px;
+    padding: 15px;
     cursor: pointer;
+    opacity: 0.2; /* Initial opacity */
+    transition: opacity 0.3s; /* Smooth transition for opacity */
 }
 
 button#prev {
-    left: 0;
+    left: 10px; /* Adjust positioning to prevent clipping */
 }
 
 button#next {
-    right: 0;
+    right: 10px; /* Adjust positioning to prevent clipping */
 }
 
 button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0.8; /* Change opacity on hover */
+    background-color: rgba(0, 0, 0, 0.5); /* Darker background on hover */
 }

@@ -23,3 +23,5 @@ function nextImage() {
     currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
     updateImage();
 }
+
+document.getElementById('galleryImage').addEventListener('click', nextImage);
