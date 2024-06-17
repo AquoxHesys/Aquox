@@ -121,8 +121,13 @@ button:hover {
     max-width: 400px; /* Maximum width for larger screens */
 }
 
-.contact-card img {
+.contact-card img.profile {
     border-radius: 50%;
+    width: 100px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.contact-card img.qr {
     width: 100px; /* Adjust as needed */
     height: auto; /* Maintain aspect ratio */
 }
