@@ -3,6 +3,9 @@ const images = [
     { src: "Galeria/d2.png", description: "Evolución del Proceso de Clarificación del Agua" },
     { src: "Galeria/d1.png", description: "Diagrama de flujo" },
     { src: "Galeria/d3.png", description: "Esquema Detallado de la Celda de Electrolisis: Vista Frontal, Superior e Isométrica" },
+    { src: "Galeria/d6.png", description: "Instalación de Pruebas" },
+    { src: "Galeria/d7.png", description: "Instalación Ciudad de México" },
+    { src: "Galeria/d8.png", description: "Instalación Estado de México (Tarango)" },
     { src: "Galeria/d4.png", description: "Tarjeta Recolectora" }
 ];
 
